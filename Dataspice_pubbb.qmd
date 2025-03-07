@@ -1,5 +1,5 @@
 ---
-title: "dataspice_pubb"
+title: "Metadata with dataspice"
 author: "Priestly Wabila"
 date: "3/6/2025"
 format:
@@ -7,29 +7,15 @@ format:
     code-fold: true
 ---
 
-## Describe your Data
+## Data Summary
 
-**Prompt #1** Describe your *data*. In your description, be sure to include the following minimum metadata elements necessary to ensure discovery and access of the data:
-
--   Who created the data
-
--   When the data were created or published
-
--   Title or descriptive name used to refer to the dataset
-
--   Unique and persistent identifier (if available; otherwise include a URL)
+The data shown below contains mass information displayed in a .qmd file
 
 ## Making Metadata Using Dataspice
-
-Called the library
 
 ``` r
 library(dataspice)
 ```
-
-![](images/1.png)
-
-You can add options to executable code like this
 
 ``` r
 create_spice(dir = "data")
@@ -37,27 +23,39 @@ create_spice(dir = "data")
 
 ``` r
 edit_creators()
+readr::read_csv('data/metadata/creators.csv')
 ```
 
+![](images/access.png)
+
 ``` r
+prep_access()
 edit_access()
+readr::read_csv('data/metadata/access.csv')
 ```
+
+![](images/attributes.png)
 
 ``` r
 edit_biblio()
+readr::read_csv('data/metadata/biblio.csv')
 ```
 
+![](images/biblio.png)
+
 ``` r
+prep_attributes()
 edit_attributes()
+readr::read_csv('data/metadata/attributes.csv')
 ```
+
+![](images/creators.png)
 
 ``` r
 write_spice()
 ```
 
-``` r
-install.packages(c("jsonlite", "listviewer"))
-```
+![](images/json.png)
 
 ``` r
 library(jsonlite)
@@ -78,3 +76,7 @@ dataspice::build_site(path = "data/metadata/dataspice.json",
   out_path = "docs/index.html"
 )
 ```
+
+**Prompt #1** The data is a display of how education techniques has changed over the years and its impact to learning
+
+The data was created by Reed, Terence and was published on 2019-01-05. Teacher ecducation in the South Wales is the topic and the unique identifier is doi:10.26193/JQHSLS
